@@ -1,0 +1,20 @@
+{
+  "name": "comintime",
+  "interface": {
+    "displayName": "ComInTime"
+  },
+  "plugins": [
+    {
+      "name": "comintime-mcp",
+      "source": {
+        "source": "local",
+        "path": "./plugins/comintime-mcp"
+      },
+      "policy": {
+        "installation": "AVAILABLE",
+        "authentication": "ON_INSTALL"
+      },
+      "category": "Productivity"
+    }
+  ]
+}

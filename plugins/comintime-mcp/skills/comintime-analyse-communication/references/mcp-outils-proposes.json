@@ -1,0 +1,192 @@
+{
+  "version": "1.1.0",
+  "tools": [
+    {
+      "name": "get-communication-audit-context",
+      "title": "Contexte d’audit de communication",
+      "description": "Retourne le profil de l’entreprise et les fondamentaux de communication nécessaires à un audit de cohérence. Les éléments cachés sont exclus par défaut.",
+      "annotations": {
+        "readOnlyHint": true,
+        "idempotentHint": true,
+        "openWorldHint": false
+      },
+      "inputSchema": {
+        "type": "object",
+        "additionalProperties": false,
+        "required": ["folder"],
+        "properties": {
+          "folder": {
+            "type": "string",
+            "description": "Identifiant numérique ou nom exact du dossier accessible à l’utilisateur."
+          },
+          "asOf": {
+            "type": "string",
+            "format": "date",
+            "description": "Date d’observation de la stratégie. Par défaut : aujourd’hui dans le fuseau du dossier."
+          },
+          "includeHidden": {
+            "type": "boolean",
+            "default": false,
+            "description": "Réservé à un audit explicite de configuration. Les éléments cachés ne doivent jamais entrer dans les attendus d’activité."
+          }
+        }
+      }
+    },
+    {
+      "name": "get-communication-activity-statistics",
+      "title": "Statistiques d’activité de communication",
+      "description": "Agrège l’activité publiée sur une période par média, objectif, cible, message, thème et sous-thème, avec qualité des données, priorités et cadences.",
+      "annotations": {
+        "readOnlyHint": true,
+        "idempotentHint": true,
+        "openWorldHint": false
+      },
+      "inputSchema": {
+        "type": "object",
+        "additionalProperties": false,
+        "required": ["folder", "from", "to"],
+        "properties": {
+          "folder": {
+            "type": "string",
+            "description": "Identifiant numérique ou nom exact du dossier."
+          },
+          "from": {
+            "type": "string",
+            "format": "date"
+          },
+          "to": {
+            "type": "string",
+            "format": "date"
+          },
+          "statuses": {
+            "type": "array",
+            "items": {
+              "type": "string",
+              "enum": [
+                "STATUS_PLANNED",
+                "STATUS_SCHEDULED",
+                "STATUS_SUCCESS_PUBLICATION",
+                "STATUS_FAILED_PUBLICATION"
+              ]
+            },
+            "default": ["STATUS_SUCCESS_PUBLICATION"]
+          },
+          "includeMonthlyBreakdown": {
+            "type": "boolean",
+            "default": true
+          },
+          "includeFutureOutlook": {
+            "type": "boolean",
+            "default": true
+          }
+        }
+      }
+    },
+    {
+      "name": "list-publications-for-communication-analysis",
+      "title": "Publications pour analyse sémantique",
+      "description": "Retourne un sous-ensemble paginé de publications et leurs associations afin d’expliquer un écart ou de vérifier la présence effective d’un message.",
+      "annotations": {
+        "readOnlyHint": true,
+        "idempotentHint": true,
+        "openWorldHint": false
+      },
+      "inputSchema": {
+        "type": "object",
+        "additionalProperties": false,
+        "required": ["folder", "from", "to"],
+        "properties": {
+          "folder": {
+            "type": "string"
+          },
+          "from": {
+            "type": "string",
+            "format": "date"
+          },
+          "to": {
+            "type": "string",
+            "format": "date"
+          },
+          "status": {
+            "type": "string",
+            "default": "STATUS_SUCCESS_PUBLICATION"
+          },
+          "supportIds": {
+            "type": "array",
+            "items": {"type": "integer"}
+          },
+          "goalIds": {
+            "type": "array",
+            "items": {"type": "integer"}
+          },
+          "targetIds": {
+            "type": "array",
+            "items": {"type": "integer"}
+          },
+          "messageIds": {
+            "type": "array",
+            "items": {"type": "integer"}
+          },
+          "themeItemIds": {
+            "type": "array",
+            "items": {"type": "integer"}
+          },
+          "limit": {
+            "type": "integer",
+            "minimum": 1,
+            "maximum": 100,
+            "default": 50
+          },
+          "cursor": {
+            "type": ["string", "null"]
+          },
+          "includeContent": {
+            "type": "boolean",
+            "default": true
+          }
+        }
+      }
+    }
+  ],
+  "forbiddenFromChatGPT": [
+    "create-strategy-item",
+    "update-strategy-item",
+    "hide-strategy-item",
+    "reorder-strategy-item",
+    "delete-strategy-item",
+    {
+      "name": "get-communication-social-statistics",
+      "title": "Performances des réseaux sociaux",
+      "description": "Compteurs sociaux stockés, couverture, dates et limites de collecte par page visible. Pas de collecte en direct.",
+      "annotations": {
+        "readOnlyHint": true,
+        "idempotentHint": true,
+        "openWorldHint": false
+      },
+      "inputSchema": {
+        "type": "object",
+        "additionalProperties": false,
+        "required": [
+          "folder"
+        ],
+        "properties": {
+          "folder": {
+            "type": "string"
+          },
+          "from": {
+            "type": "string",
+            "format": "date"
+          },
+          "to": {
+            "type": "string",
+            "format": "date"
+          },
+          "userEmail": {
+            "type": "string",
+            "description": "Réservé au contexte autorisé du serveur ; ignoré sous OAuth."
+          }
+        }
+      }
+    }
+  ]
+}

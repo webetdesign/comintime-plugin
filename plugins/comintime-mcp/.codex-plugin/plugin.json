@@ -1,0 +1,44 @@
+{
+  "name": "comintime-mcp",
+  "version": "0.6.0",
+  "description": "Serveur MCP ComInTime (consultation, création, visuels et publication de contenu éditorial) + skill de publication et sous-agent community manager.",
+  "author": {
+    "name": "Web et Design",
+    "email": "contact@webetdesign.com",
+    "url": "https://github.com/webetdesign"
+  },
+  "homepage": "https://www.comintime.com/fr/",
+  "repository": "https://github.com/webetdesign/comintime-plugin",
+  "license": "proprietary",
+  "keywords": [
+    "mcp",
+    "comintime",
+    "editorial",
+    "community-management",
+    "oauth"
+  ],
+  "skills": "./skills/",
+  "apps": "./.app.json",
+  "interface": {
+    "displayName": "ComInTime",
+    "shortDescription": "Créer, organiser, programmer et publier vos contenus avec votre stratégie éditoriale ComInTime.",
+    "longDescription": "Utilise l'application ComInTime pour accéder à vos dossiers, votre contexte éditorial, vos brouillons, vos visuels et vos publications, toujours au nom de l'utilisateur connecté et selon ses rôles. Inclut le skill « comintime-publication » pour guider la rédaction et la confirmation avant toute action sensible.",
+    "developerName": "Web et Design",
+    "category": "Productivity",
+    "capabilities": [
+      "Read",
+      "Write"
+    ],
+    "defaultPrompt": [
+      "Liste mes dossiers ComInTime et mon rôle sur chacun.",
+      "Prépare un brouillon de post pour mon prochain créneau éditorial.",
+      "Montre l'agenda éditorial de la semaine prochaine."
+    ],
+    "brandColor": "#2563EB",
+    "composerIcon": "./assets/icon.png",
+    "logo": "./assets/logo.png",
+    "websiteURL": "https://www.comintime.com/fr/",
+    "privacyPolicyURL": "https://www.comintime.com/fr/politique-de-confidentialite",
+    "termsOfServiceURL": "https://www.comintime.com/fr/conditions-generales-d-utilisation"
+  }
+}

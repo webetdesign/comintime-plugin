@@ -1,0 +1,4 @@
+interface:
+  display_name: "ComInTime"
+  short_description: "Créer, organiser, programmer et publier vos contenus avec votre stratégie éditoriale ComInTime."
+  default_prompt: "Utilise $comintime-publication pour rédiger et programmer ma prochaine publication."

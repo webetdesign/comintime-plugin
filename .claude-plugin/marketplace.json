@@ -1,0 +1,19 @@
+{
+  "name": "comintime",
+  "owner": {
+    "name": "Web et Design",
+    "url": "https://github.com/webetdesign"
+  },
+  "metadata": {
+    "description": "Plugins officiels ComInTime pour Claude.",
+    "version": "0.6.0"
+  },
+  "plugins": [
+    {
+      "name": "comintime-mcp",
+      "source": "./plugins/comintime-mcp",
+      "description": "Connecte Claude au serveur MCP ComInTime (OAuth 2.1) : liste des dossiers, agenda éditorial, rédaction et programmation de posts. Fournit aussi des slash-commands et un sous-agent community manager.",
+      "category": "productivity"
+    }
+  ]
+}

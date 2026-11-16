@@ -1,0 +1,23 @@
+{
+  "name": "comintime-mcp",
+  "version": "0.6.0",
+  "description": "Connecte Claude à ComInTime : dossiers, agenda éditorial, rédaction, visuels, programmation et analyse de vos publications. Inclut commandes, skills et un sous-agent community manager.",
+  "author": {
+    "name": "Web et Design",
+    "email": "contact@webetdesign.com"
+  },
+  "homepage": "https://www.comintime.com/fr/",
+  "repository": "https://github.com/webetdesign/comintime-plugin",
+  "license": "proprietary",
+  "keywords": [
+    "mcp",
+    "comintime",
+    "editorial",
+    "community-management",
+    "oauth"
+  ],
+  "icon": "./assets/icon.png",
+  "skills": "./skills/",
+  "mcpServers": "./.claude-plugin/mcp.json",
+  "privacyPolicyUrl": "https://www.comintime.com/fr/politique-de-confidentialite"
+}

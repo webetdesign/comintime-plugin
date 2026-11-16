@@ -1,0 +1,4 @@
+interface:
+  display_name: "Analyse de communication ComInTime"
+  short_description: "Auditer la stratégie et l’activité de communication"
+  default_prompt: "Utilise $comintime-analyse-communication pour analyser ma communication des trois derniers mois."

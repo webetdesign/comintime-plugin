@@ -1,0 +1,4 @@
+interface:
+  display_name: "Rédaction ComInTime"
+  short_description: "Rédiger, caractériser, enregistrer, faire valider ou programmer une publication avec le contexte d’entreprise, la stratégie éditoriale et l’historique mensuel de ComInTime. Utiliser pour transformer une idée en contenu destiné à un média configuré dans ComInTime, sans imposer à l’utilisateur un tunnel stratégique."
+  default_prompt: "Utilise $comintime-publication pour publier"
