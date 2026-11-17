@@ -1,7 +1,7 @@
 ---
 description: Ajoute ou retire un visuel sur un post ComInTime, puis recalcule sa conformité réseau.
 argument-hint: <id du post> [· remove <id média>]
-allowed-tools: mcp__comintime__attach-media, mcp__comintime__remove-media, mcp__comintime__get-post-context
+allowed-tools: mcp__plugin_comintime-mcp_comintime__attach-media, mcp__plugin_comintime-mcp_comintime__remove-media, mcp__plugin_comintime-mcp_comintime__get-post-context
 ---
 
 Demande : **$ARGUMENTS**
@@ -11,17 +11,17 @@ Identifie l'id du post. Deux cas :
 ## Ajouter un visuel
 
 - **Si l'utilisateur a joint une image au message** : appelle
-  `mcp__comintime__attach-media` avec `subjectId`, `imageBase64` (le contenu de
+  `mcp__plugin_comintime-mcp_comintime__attach-media` avec `subjectId`, `imageBase64` (le contenu de
   l'image encodé en base64) et `mimeType` (`image/png`, `image/jpeg`…).
 - **Si l'utilisateur a donné une URL** (ou un data URI) : appelle
-  `mcp__comintime__attach-media` avec `subjectId` et `imageUrl`.
+  `mcp__plugin_comintime-mcp_comintime__attach-media` avec `subjectId` et `imageUrl`.
 
 Contraintes : image valide, 10 Mo max. Un post Instagram exige au moins un visuel.
 
 ## Retirer un visuel
 
 Si la demande contient `remove <id média>`, appelle
-`mcp__comintime__remove-media` avec `subjectId` et `mediaId`.
+`mcp__plugin_comintime-mcp_comintime__remove-media` avec `subjectId` et `mediaId`.
 
 ## Rendu
 

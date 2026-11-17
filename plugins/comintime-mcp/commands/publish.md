@@ -1,14 +1,14 @@
 ---
 description: Programme ou publie un post ComInTime existant, avec dry-run obligatoire.
 argument-hint: <id du post> [· "now" | date ISO]
-allowed-tools: mcp__comintime__publish-post, mcp__comintime__get-post-context
+allowed-tools: mcp__plugin_comintime-mcp_comintime__publish-post, mcp__plugin_comintime-mcp_comintime__get-post-context
 ---
 
 Demande : **$ARGUMENTS**
 
 1. Identifie l'id du post et le mode voulu : `now` (immédiat) ou `schedule` avec
    une date ISO future (`YYYY-MM-DDTHH:MM`).
-2. Appelle `mcp__comintime__publish-post` **en dry-run** (`confirm` = false / non
+2. Appelle `mcp__plugin_comintime-mcp_comintime__publish-post` **en dry-run** (`confirm` = false / non
    fourni) pour obtenir le récapitulatif : `channel` (type + compte), date
    effective, `contentPreview`, `mediaCount`, `viability` (avertissements réseau)
    et `blockers`.
@@ -18,7 +18,7 @@ Demande : **$ARGUMENTS**
    - Si le contenu est trop long, corrige-le avec `/comintime:draft` ou
      `update-post` puis relance le dry-run.
 4. Affiche le récapitulatif à l'utilisateur et demande une confirmation explicite.
-5. Seulement après un « oui » clair, rappelle `mcp__comintime__publish-post` avec
+5. Seulement après un « oui » clair, rappelle `mcp__plugin_comintime-mcp_comintime__publish-post` avec
    `confirm: true` et les mêmes paramètres.
 6. Confirme le résultat (statut final + date programmée/publiée + `messengerId`).
 

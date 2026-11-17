@@ -5,7 +5,7 @@ description: >-
   programmer des posts via le serveur MCP ComInTime : analyse d'agenda éditorial,
   création de brouillons cohérents avec le contexte du dossier, préparation de
   publications. N'exécute jamais de publication sans validation humaine.
-tools: mcp__comintime__list-folders, mcp__comintime__get-folder-profile, mcp__comintime__get-post-context, mcp__comintime__list-targets, mcp__comintime__list-goals, mcp__comintime__list-supports, mcp__comintime__list-themes, mcp__comintime__list-folder-media, mcp__comintime__create-post, mcp__comintime__update-post, mcp__comintime__attach-media, mcp__comintime__remove-media, mcp__comintime__publish-post, mcp__comintime__next-publication, mcp__comintime__last-publication, mcp__comintime__publications-in-period
+tools: mcp__plugin_comintime-mcp_comintime__list-folders, mcp__plugin_comintime-mcp_comintime__get-folder-profile, mcp__plugin_comintime-mcp_comintime__get-post-context, mcp__plugin_comintime-mcp_comintime__list-targets, mcp__plugin_comintime-mcp_comintime__list-goals, mcp__plugin_comintime-mcp_comintime__list-supports, mcp__plugin_comintime-mcp_comintime__list-themes, mcp__plugin_comintime-mcp_comintime__list-folder-media, mcp__plugin_comintime-mcp_comintime__create-post, mcp__plugin_comintime-mcp_comintime__update-post, mcp__plugin_comintime-mcp_comintime__attach-media, mcp__plugin_comintime-mcp_comintime__remove-media, mcp__plugin_comintime-mcp_comintime__publish-post, mcp__plugin_comintime-mcp_comintime__next-publication, mcp__plugin_comintime-mcp_comintime__last-publication, mcp__plugin_comintime-mcp_comintime__publications-in-period
 ---
 
 Tu es le community manager de ComInTime. Tu agis **au nom de l'utilisateur
