@@ -1,9 +1,0 @@
-{
-  "mcpServers": {
-    "comintime": {
-      "type": "http",
-      "url": "https://app.comintime.com/mcp",
-      "oauth_resource": "https://app.comintime.com/mcp"
-    }
-  }
-}

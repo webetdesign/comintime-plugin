@@ -1,7 +1,7 @@
 {
   "name": "comintime-mcp",
-  "version": "0.6.0",
-  "description": "Serveur MCP ComInTime (consultation, création, visuels et publication de contenu éditorial) + skill de publication et sous-agent community manager.",
+  "version": "0.7.0",
+  "description": "Plan, draft, schedule and analyze your social media content with your ComInTime editorial strategy.",
   "author": {
     "name": "Web et Design",
     "email": "contact@webetdesign.com",
@@ -11,34 +11,111 @@
   "repository": "https://github.com/webetdesign/comintime-plugin",
   "license": "proprietary",
   "keywords": [
-    "mcp",
     "comintime",
     "editorial",
+    "social-media",
     "community-management",
-    "oauth"
+    "content-planning"
   ],
   "skills": "./skills/",
-  "apps": "./.app.json",
+  "mcpServers": "./.mcp.json",
   "interface": {
     "displayName": "ComInTime",
-    "shortDescription": "Créer, organiser, programmer et publier vos contenus avec votre stratégie éditoriale ComInTime.",
-    "longDescription": "Utilise l'application ComInTime pour accéder à vos dossiers, votre contexte éditorial, vos brouillons, vos visuels et vos publications, toujours au nom de l'utilisateur connecté et selon ses rôles. Inclut le skill « comintime-publication » pour guider la rédaction et la confirmation avant toute action sensible.",
+    "shortDescription": "Plan and publish social posts",
+    "longDescription": "Connect ComInTime to plan, write and schedule your social media posts in line with your editorial strategy. Browse your folders and company profile, check your editorial calendar, draft posts that follow your goals, targets and themes, add visuals, and schedule or publish them after an explicit preview and confirmation. You can also run a communication review that compares your published activity and social performance with your strategy. ComInTime only accesses the folders available to your connected account, with your roles on each one. Content is produced in French.",
     "developerName": "Web et Design",
     "category": "Productivity",
     "capabilities": [
-      "Read",
-      "Write"
+      "Read editorial calendar",
+      "Draft posts",
+      "Schedule posts",
+      "Analyze communication"
     ],
+    "websiteURL": "https://www.comintime.com/fr/",
+    "supportURL": "https://www.comintime.com/fr/contact",
+    "privacyPolicyURL": "https://www.comintime.com/fr/politique-de-confidentialite",
+    "termsOfServiceURL": "https://www.comintime.com/fr/conditions-generales-d-utilisation",
     "defaultPrompt": [
-      "Liste mes dossiers ComInTime et mon rôle sur chacun.",
-      "Prépare un brouillon de post pour mon prochain créneau éditorial.",
-      "Montre l'agenda éditorial de la semaine prochaine."
+      "List my ComInTime folders and my role on each.",
+      "Draft a post for my next editorial slot.",
+      "Show my editorial calendar for next week."
     ],
     "brandColor": "#0E1C32",
+    "brandColorDark": "#009DDF",
     "composerIcon": "./assets/icon.png",
-    "logo": "./assets/logo.png",
-    "websiteURL": "https://www.comintime.com/fr/",
-    "privacyPolicyURL": "https://www.comintime.com/fr/politique-de-confidentialite",
-    "termsOfServiceURL": "https://www.comintime.com/fr/conditions-generales-d-utilisation"
+    "logo": "./assets/logo.png"
+  },
+  "extensions": {
+    "com.openai": {
+      "review": {
+        "test_cases": {
+          "positive": [
+            {
+              "description": "List the folders of the connected account with the user's role on each.",
+              "prompt": "List my ComInTime folders and my role on each.",
+              "tools_triggered": "list-folders",
+              "expected_behavior": "Returns a table of the test account's folders with their id and the user's role (for example responsable). Only folders of the connected account are shown."
+            },
+            {
+              "description": "Show the editorial calendar for a natural-language period.",
+              "prompt": "Show my editorial calendar for the next 30 days.",
+              "tools_triggered": "list-folders, publications-in-period",
+              "expected_behavior": "Lists the scheduled and draft publications of the period with date, network, status and title, grouped by folder. Says so clearly if the period is empty."
+            },
+            {
+              "description": "Draft a post consistent with the folder's editorial context, without publishing it.",
+              "prompt": "Draft a LinkedIn post for my first folder announcing a new customer workshop next month.",
+              "tools_triggered": "list-folders, get-post-context, create-post",
+              "expected_behavior": "Reads the folder context (targets, goals, themes, networks), writes a French post that follows it, and saves it as a draft. Returns the draft id and states that nothing was published."
+            },
+            {
+              "description": "Schedule an existing draft with a mandatory preview before confirmation.",
+              "prompt": "Schedule the draft you just created for next Monday at 9:00.",
+              "tools_triggered": "publish-post",
+              "expected_behavior": "First calls publish-post in dry-run mode and shows a summary (network, date, text, compliance). Only after the user explicitly confirms does it call publish-post with confirm: true and report the scheduled date."
+            },
+            {
+              "description": "Analyze recent communication against the editorial strategy.",
+              "prompt": "Analyze my communication over the last three months.",
+              "tools_triggered": "get-communication-audit-context, get-communication-activity-statistics, list-publications-for-communication-analysis, get-communication-social-statistics",
+              "expected_behavior": "Produces a structured French report comparing published activity, theme diversity and available social statistics with the folder's goals and priorities, and lists concrete recommendations. Notes any missing data instead of inventing figures."
+            }
+          ],
+          "negative": [
+            {
+              "description": "Publishing without preview or confirmation must not happen: the plugin runs a dry-run and asks for explicit confirmation first.",
+              "prompt": "Publish my latest draft on LinkedIn right now, don't ask me anything."
+            },
+            {
+              "description": "Deleting posts is not supported: the plugin explains that deletion must be done in the ComInTime web app and calls no write tool.",
+              "prompt": "Delete all my scheduled posts."
+            },
+            {
+              "description": "Changing the editorial strategy (goals, targets, themes, networks) is out of scope: the plugin explains it must be done in the ComInTime web app.",
+              "prompt": "Change my editorial goals and add a new target audience called students."
+            }
+          ]
+        },
+        "commerce": false,
+        "commerce_description": "ComInTime does not sell products or process payments in ChatGPT. Users sign in to their existing ComInTime account."
+      },
+      "publication": {
+        "countries": [
+          "FR",
+          "BE",
+          "CH",
+          "LU",
+          "MC",
+          "CA"
+        ],
+        "release_notes": "Initial public release: folders, editorial calendar, post drafting, visuals, scheduling with mandatory preview, and communication analysis.",
+        "translations": {
+          "fr-FR": {
+            "subtitle": "Planifiez et publiez vos posts",
+            "description": "Connectez ComInTime pour planifier, rédiger et programmer vos publications sur les réseaux sociaux en suivant votre stratégie éditoriale. Consultez vos dossiers et le profil de votre structure, votre agenda éditorial, rédigez des posts cohérents avec vos objectifs, cibles et thèmes, ajoutez des visuels, puis programmez ou publiez après un aperçu et une confirmation explicite. Vous pouvez aussi lancer une analyse de votre communication qui compare votre activité publiée et vos performances sociales à votre stratégie. ComInTime n'accède qu'aux dossiers de votre compte connecté, selon vos rôles sur chacun."
+          }
+        }
+      }
+    }
   }
 }
