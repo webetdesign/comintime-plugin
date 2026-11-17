@@ -7,6 +7,11 @@ copie le plugin, remplace les champs de fiche par ceux de openai/listing.en.json
 et place la version française dans
 extensions.com.openai.publication.translations.fr-FR.
 
+Le dépôt référence aussi l'app ChatGPT de l'espace W&D (.app.json) pour que le
+plugin fonctionne sur ChatGPT web via le marketplace d'organisation. L'annuaire
+refuse un ZIP qui référence une app : le script retire .app.json et déclare à la
+place le serveur MCP de .mcp.json.
+
 Usage : python3 scripts/build-openai-zip.py  ->  dist/comintime-<version>.zip
 """
 import json
@@ -40,6 +45,8 @@ def main() -> int:
             print(f"{label} trop long : {len(text)} > {limit} caractères", file=sys.stderr)
             return 1
 
+    manifest.pop("apps", None)
+    manifest["mcpServers"] = "./.mcp.json"
     manifest["description"] = english["description"]
     interface.update(english["interface"])
     publication = manifest["extensions"]["com.openai"]["publication"]
@@ -53,7 +60,7 @@ def main() -> int:
 
     with tempfile.TemporaryDirectory() as tmp:
         staging = pathlib.Path(tmp) / "comintime-mcp"
-        shutil.copytree(PLUGIN, staging, ignore=shutil.ignore_patterns(".DS_Store"))
+        shutil.copytree(PLUGIN, staging, ignore=shutil.ignore_patterns(".DS_Store", ".app.json"))
         (staging / ".codex-plugin" / "plugin.json").write_text(
             json.dumps(manifest, ensure_ascii=False, indent=2) + "\n"
         )

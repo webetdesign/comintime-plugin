@@ -27,7 +27,10 @@ python3 scripts/build-openai-zip.py
 ```
 
 Le script produit `dist/comintime-<version>.zip` : fiche de base en anglais, et
-version française reprise du manifeste dans la traduction `fr-FR`. Toute
+version française reprise du manifeste dans la traduction `fr-FR`. Il retire aussi
+`.app.json` : le dépôt référence l'app ChatGPT de l'espace W&D (usage sur
+ChatGPT web via le marketplace d'organisation), ce que l'annuaire refuse ; le ZIP
+déclare à la place le serveur MCP de `.mcp.json`. Toute
 modification des textes de la fiche se fait donc aux deux endroits.
 
 Licence propriétaire © Web et Design — voir [LICENSE](./LICENSE).

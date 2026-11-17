@@ -1,6 +1,6 @@
 {
   "name": "comintime-mcp",
-  "version": "0.7.3",
+  "version": "0.7.4",
   "description": "Planifiez, rédigez, programmez et analysez vos publications sur les réseaux sociaux avec votre stratégie éditoriale ComInTime.",
   "author": {
     "name": "Web et Design",
@@ -18,7 +18,8 @@
     "content-planning"
   ],
   "skills": "./skills/",
-  "mcpServers": "./.mcp.json",
+  "apps": "./.app.json",
+  "mcpServers": null,
   "interface": {
     "displayName": "ComInTime",
     "shortDescription": "Planifiez et publiez vos posts",
