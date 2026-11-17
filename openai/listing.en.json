@@ -1,0 +1,19 @@
+{
+  "_comment": "Fiche de base en anglais pour la soumission à l'annuaire OpenAI. scripts/build-openai-zip.py la réinjecte dans le ZIP ; le dépôt garde le français (installations via le marketplace).",
+  "description": "Plan, draft, schedule and analyze your social media content with your ComInTime editorial strategy.",
+  "interface": {
+    "shortDescription": "Plan and publish social posts",
+    "longDescription": "Connect ComInTime to plan, write and schedule your social media posts in line with your editorial strategy. Browse your folders and company profile, check your editorial calendar, draft posts that follow your goals, targets and themes, add visuals, and schedule or publish them after an explicit preview and confirmation. You can also run a communication review that compares your published activity and social performance with your strategy. ComInTime only accesses the folders available to your connected account, with your roles on each one. Content is produced in French.",
+    "capabilities": [
+      "Read editorial calendar",
+      "Draft posts",
+      "Schedule posts",
+      "Analyze communication"
+    ],
+    "defaultPrompt": [
+      "List my ComInTime folders and my role on each.",
+      "Draft a post for my next editorial slot.",
+      "Show my editorial calendar for next week."
+    ]
+  }
+}

@@ -1,7 +1,7 @@
 {
   "name": "comintime-mcp",
-  "version": "0.7.1",
-  "description": "Plan, draft, schedule and analyze your social media content with your ComInTime editorial strategy.",
+  "version": "0.7.2",
+  "description": "Planifiez, rédigez, programmez et analysez vos publications sur les réseaux sociaux avec votre stratégie éditoriale ComInTime.",
   "author": {
     "name": "Web et Design",
     "email": "contact@webetdesign.com",
@@ -21,24 +21,24 @@
   "mcpServers": "./.mcp.json",
   "interface": {
     "displayName": "ComInTime",
-    "shortDescription": "Plan and publish social posts",
-    "longDescription": "Connect ComInTime to plan, write and schedule your social media posts in line with your editorial strategy. Browse your folders and company profile, check your editorial calendar, draft posts that follow your goals, targets and themes, add visuals, and schedule or publish them after an explicit preview and confirmation. You can also run a communication review that compares your published activity and social performance with your strategy. ComInTime only accesses the folders available to your connected account, with your roles on each one. Content is produced in French.",
+    "shortDescription": "Planifiez et publiez vos posts",
+    "longDescription": "Connectez ComInTime pour planifier, rédiger et programmer vos publications sur les réseaux sociaux en suivant votre stratégie éditoriale. Consultez vos dossiers et le profil de votre structure, votre agenda éditorial, rédigez des posts cohérents avec vos objectifs, cibles et thèmes, ajoutez des visuels, puis programmez ou publiez après un aperçu et une confirmation explicite. Vous pouvez aussi lancer une analyse de votre communication qui compare votre activité publiée et vos performances sociales à votre stratégie. ComInTime n'accède qu'aux dossiers de votre compte connecté, selon vos rôles sur chacun. Les contenus sont rédigés en français.",
     "developerName": "Web et Design",
     "category": "Productivity",
     "capabilities": [
-      "Read editorial calendar",
-      "Draft posts",
-      "Schedule posts",
-      "Analyze communication"
+      "Consulter l'agenda éditorial",
+      "Rédiger des posts",
+      "Programmer des posts",
+      "Analyser la communication"
     ],
     "websiteURL": "https://www.comintime.com/fr/",
     "supportURL": "https://www.comintime.com/fr/contact",
     "privacyPolicyURL": "https://www.comintime.com/fr/politique-de-confidentialite",
     "termsOfServiceURL": "https://www.comintime.com/fr/conditions-generales-d-utilisation",
     "defaultPrompt": [
-      "List my ComInTime folders and my role on each.",
-      "Draft a post for my next editorial slot.",
-      "Show my editorial calendar for next week."
+      "Liste mes dossiers ComInTime et mon rôle sur chacun.",
+      "Rédige un post pour mon prochain créneau éditorial.",
+      "Montre mon agenda éditorial de la semaine prochaine."
     ],
     "brandColor": "#0E1C32",
     "brandColorDark": "#009DDF",
@@ -108,13 +108,7 @@
           "MC",
           "CA"
         ],
-        "release_notes": "Initial public release: folders, editorial calendar, post drafting, visuals, scheduling with mandatory preview, and communication analysis.",
-        "translations": {
-          "fr-FR": {
-            "subtitle": "Planifiez et publiez vos posts",
-            "description": "Connectez ComInTime pour planifier, rédiger et programmer vos publications sur les réseaux sociaux en suivant votre stratégie éditoriale. Consultez vos dossiers et le profil de votre structure, votre agenda éditorial, rédigez des posts cohérents avec vos objectifs, cibles et thèmes, ajoutez des visuels, puis programmez ou publiez après un aperçu et une confirmation explicite. Vous pouvez aussi lancer une analyse de votre communication qui compare votre activité publiée et vos performances sociales à votre stratégie. ComInTime n'accède qu'aux dossiers de votre compte connecté, selon vos rôles sur chacun."
-          }
-        }
+        "release_notes": "Initial public release: folders, editorial calendar, post drafting, visuals, scheduling with mandatory preview, and communication analysis."
       }
     }
   }
