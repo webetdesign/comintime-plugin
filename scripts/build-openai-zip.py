@@ -10,7 +10,9 @@ extensions.com.openai.publication.translations.fr-FR.
 Le dépôt référence aussi l'app ChatGPT de l'espace W&D (.app.json) pour que le
 plugin fonctionne sur ChatGPT web via le marketplace d'organisation. L'annuaire
 refuse un ZIP qui référence une app : le script retire .app.json et déclare à la
-place le serveur MCP de .mcp.json.
+place le serveur MCP de .mcp.json. Il ajoute enfin les cas de test de revue
+(openai/review.json), refusés par l'import en marketplace d'organisation tant
+que le manifeste ne déclare pas exactement un serveur MCP.
 
 Usage : python3 scripts/build-openai-zip.py  ->  dist/comintime-<version>.zip
 """
@@ -24,6 +26,7 @@ import zipfile
 ROOT = pathlib.Path(__file__).resolve().parent.parent
 PLUGIN = ROOT / "plugins" / "comintime-mcp"
 LISTING_EN = ROOT / "openai" / "listing.en.json"
+REVIEW = ROOT / "openai" / "review.json"
 SUBTITLE_MAX = 30
 DESCRIPTION_MAX = 4000
 
@@ -45,6 +48,8 @@ def main() -> int:
             print(f"{label} trop long : {len(text)} > {limit} caractères", file=sys.stderr)
             return 1
 
+    review = json.loads(REVIEW.read_text())["review"]
+    manifest.setdefault("extensions", {}).setdefault("com.openai", {})["review"] = review
     manifest.pop("apps", None)
     manifest["mcpServers"] = "./.mcp.json"
     manifest["description"] = english["description"]

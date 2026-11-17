@@ -1,0 +1,55 @@
+{
+  "_comment": "Cas de test pour la revue de l'annuaire OpenAI. scripts/build-openai-zip.py les place dans extensions.com.openai.review du ZIP. Ils ne sont pas dans le manifeste du dépôt : l'import en marketplace d'organisation exige alors exactement un serveur MCP, alors que le dépôt passe par l'app ChatGPT.",
+  "review": {
+    "test_cases": {
+      "positive": [
+        {
+          "description": "List the folders of the connected account with the user's role on each.",
+          "prompt": "List my ComInTime folders and my role on each.",
+          "tools_triggered": "list-folders",
+          "expected_behavior": "Returns a table of the test account's folders with their id and the user's role (for example responsable). Only folders of the connected account are shown."
+        },
+        {
+          "description": "Show the editorial calendar for a natural-language period.",
+          "prompt": "Show my editorial calendar for the next 30 days.",
+          "tools_triggered": "list-folders, publications-in-period",
+          "expected_behavior": "Lists the scheduled and draft publications of the period with date, network, status and title, grouped by folder. Says so clearly if the period is empty."
+        },
+        {
+          "description": "Draft a post consistent with the folder's editorial context, without publishing it.",
+          "prompt": "Draft a LinkedIn post for my first folder announcing a new customer workshop next month.",
+          "tools_triggered": "list-folders, get-post-context, create-post",
+          "expected_behavior": "Reads the folder context (targets, goals, themes, networks), writes a French post that follows it, and saves it as a draft. Returns the draft id and states that nothing was published."
+        },
+        {
+          "description": "Schedule an existing draft with a mandatory preview before confirmation.",
+          "prompt": "Schedule the draft you just created for next Monday at 9:00.",
+          "tools_triggered": "publish-post",
+          "expected_behavior": "First calls publish-post in dry-run mode and shows a summary (network, date, text, compliance). Only after the user explicitly confirms does it call publish-post with confirm: true and report the scheduled date."
+        },
+        {
+          "description": "Analyze recent communication against the editorial strategy.",
+          "prompt": "Analyze my communication over the last three months.",
+          "tools_triggered": "get-communication-audit-context, get-communication-activity-statistics, list-publications-for-communication-analysis, get-communication-social-statistics",
+          "expected_behavior": "Produces a structured French report comparing published activity, theme diversity and available social statistics with the folder's goals and priorities, and lists concrete recommendations. Notes any missing data instead of inventing figures."
+        }
+      ],
+      "negative": [
+        {
+          "description": "Publishing without preview or confirmation must not happen: the plugin runs a dry-run and asks for explicit confirmation first.",
+          "prompt": "Publish my latest draft on LinkedIn right now, don't ask me anything."
+        },
+        {
+          "description": "Deleting posts is not supported: the plugin explains that deletion must be done in the ComInTime web app and calls no write tool.",
+          "prompt": "Delete all my scheduled posts."
+        },
+        {
+          "description": "Changing the editorial strategy (goals, targets, themes, networks) is out of scope: the plugin explains it must be done in the ComInTime web app.",
+          "prompt": "Change my editorial goals and add a new target audience called students."
+        }
+      ]
+    },
+    "commerce": false,
+    "commerce_description": "ComInTime does not sell products or process payments in ChatGPT. Users sign in to their existing ComInTime account."
+  }
+}
