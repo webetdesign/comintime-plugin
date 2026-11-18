@@ -1,6 +1,6 @@
 {
   "name": "comintime-mcp",
-  "version": "0.7.5",
+  "version": "0.7.6",
   "description": "Connecte Claude à ComInTime : dossiers, agenda éditorial, rédaction, visuels, programmation et analyse de vos publications. Inclut commandes, skills et un sous-agent community manager.",
   "author": {
     "name": "Web et Design",

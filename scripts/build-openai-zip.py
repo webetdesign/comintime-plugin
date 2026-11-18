@@ -11,7 +11,9 @@ Le dépôt référence aussi l'app ChatGPT de l'espace W&D (.app.json) pour que 
 plugin fonctionne sur ChatGPT web via le marketplace d'organisation. L'annuaire
 refuse un ZIP qui référence une app : le script retire .app.json et déclare à la
 place le serveur MCP de .mcp.json. Il ajoute enfin les cas de test de revue
-(openai/review.json), refusés par l'import en marketplace d'organisation tant
+(openai/review.json) et remplace .mcp.json par openai/mcp.json : la version du
+dépôt se limite aux champs acceptés par l'annuaire Claude (type http, sans
+extensions.com.openai). Les cas de test sont refusés par l'import en marketplace d'organisation tant
 que le manifeste ne déclare pas exactement un serveur MCP.
 
 Usage : python3 scripts/build-openai-zip.py  ->  dist/comintime-<version>.zip
@@ -27,6 +29,7 @@ ROOT = pathlib.Path(__file__).resolve().parent.parent
 PLUGIN = ROOT / "plugins" / "comintime-mcp"
 LISTING_EN = ROOT / "openai" / "listing.en.json"
 REVIEW = ROOT / "openai" / "review.json"
+MCP_OPENAI = ROOT / "openai" / "mcp.json"
 SUBTITLE_MAX = 30
 DESCRIPTION_MAX = 4000
 
@@ -66,6 +69,9 @@ def main() -> int:
     with tempfile.TemporaryDirectory() as tmp:
         staging = pathlib.Path(tmp) / "comintime-mcp"
         shutil.copytree(PLUGIN, staging, ignore=shutil.ignore_patterns(".DS_Store", ".app.json"))
+        # .mcp.json du dépôt : champs acceptés par l'annuaire Claude uniquement.
+        # Version OpenAI (streamable-http + extensions.com.openai) pour le ZIP.
+        shutil.copyfile(MCP_OPENAI, staging / ".mcp.json")
         (staging / ".codex-plugin" / "plugin.json").write_text(
             json.dumps(manifest, ensure_ascii=False, indent=2) + "\n"
         )

@@ -1,7 +1,6 @@
 ---
 description: Rédige un brouillon de post ComInTime (sans le publier) à partir d'un brief.
 argument-hint: <dossier> : <brief de rédaction>
-allowed-tools: mcp__plugin_comintime-mcp_comintime__list-folders, mcp__plugin_comintime-mcp_comintime__get-post-context, mcp__plugin_comintime-mcp_comintime__create-post, mcp__plugin_comintime-mcp_comintime__attach-media
 ---
 
 Brief : **$ARGUMENTS**

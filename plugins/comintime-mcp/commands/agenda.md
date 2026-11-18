@@ -1,7 +1,6 @@
 ---
 description: Affiche l'agenda éditorial ComInTime pour une période donnée.
 argument-hint: [période en langage naturel] [· dossier]
-allowed-tools: mcp__plugin_comintime-mcp_comintime__publications-in-period, mcp__plugin_comintime-mcp_comintime__list-folders
 ---
 
 Période demandée : **$ARGUMENTS**

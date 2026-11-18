@@ -1,7 +1,6 @@
 ---
 description: Programme ou publie un post ComInTime existant, avec dry-run obligatoire.
 argument-hint: <id du post> [· "now" | date ISO]
-allowed-tools: mcp__plugin_comintime-mcp_comintime__publish-post, mcp__plugin_comintime-mcp_comintime__get-post-context
 ---
 
 Demande : **$ARGUMENTS**

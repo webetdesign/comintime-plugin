@@ -1,18 +1,8 @@
 {
   "mcpServers": {
     "comintime": {
-      "type": "streamable-http",
-      "url": "https://app.comintime.com/mcp",
-      "extensions": {
-        "com.openai": {
-          "auth": {
-            "type": "oauth",
-            "client": {
-              "mode": "dcr"
-            }
-          }
-        }
-      }
+      "type": "http",
+      "url": "https://app.comintime.com/mcp"
     }
   }
 }

@@ -1,7 +1,6 @@
 ---
 description: Affiche le profil de la structure (entreprise, association…) d'un dossier ComInTime.
 argument-hint: <dossier>
-allowed-tools: mcp__plugin_comintime-mcp_comintime__get-folder-profile, mcp__plugin_comintime-mcp_comintime__list-folders
 ---
 
 Dossier : **$ARGUMENTS**

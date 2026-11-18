@@ -1,7 +1,6 @@
 ---
 description: Ajoute ou retire un visuel sur un post ComInTime, puis recalcule sa conformité réseau.
 argument-hint: <id du post> [· remove <id média>]
-allowed-tools: mcp__plugin_comintime-mcp_comintime__attach-media, mcp__plugin_comintime-mcp_comintime__remove-media, mcp__plugin_comintime-mcp_comintime__get-post-context
 ---
 
 Demande : **$ARGUMENTS**
