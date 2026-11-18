@@ -1,5 +1,5 @@
 ---
-description: Liste les dossiers ComInTime de l'utilisateur connecté et son rôle sur chacun.
+description: "Liste les dossiers ComInTime de l'utilisateur connecté et son rôle sur chacun."
 ---
 
 Appelle l'outil `mcp__plugin_comintime-mcp_comintime__list-folders` puis présente le résultat sous forme

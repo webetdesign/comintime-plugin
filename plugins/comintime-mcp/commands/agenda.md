@@ -1,6 +1,6 @@
 ---
-description: Affiche l'agenda éditorial ComInTime pour une période donnée.
-argument-hint: [période en langage naturel] [· dossier]
+description: "Affiche l'agenda éditorial ComInTime pour une période donnée."
+argument-hint: "[période en langage naturel] [· dossier]"
 ---
 
 Période demandée : **$ARGUMENTS**

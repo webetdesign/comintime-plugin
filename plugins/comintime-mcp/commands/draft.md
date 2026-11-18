@@ -1,6 +1,6 @@
 ---
-description: Rédige un brouillon de post ComInTime (sans le publier) à partir d'un brief.
-argument-hint: <dossier> : <brief de rédaction>
+description: "Rédige un brouillon de post ComInTime (sans le publier) à partir d'un brief."
+argument-hint: "<dossier> : <brief de rédaction>"
 ---
 
 Brief : **$ARGUMENTS**

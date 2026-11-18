@@ -1,6 +1,6 @@
 ---
-description: Affiche le profil de la structure (entreprise, association…) d'un dossier ComInTime.
-argument-hint: <dossier>
+description: "Affiche le profil de la structure (entreprise, association…) d'un dossier ComInTime."
+argument-hint: "<dossier>"
 ---
 
 Dossier : **$ARGUMENTS**

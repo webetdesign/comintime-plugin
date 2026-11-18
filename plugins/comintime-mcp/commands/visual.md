@@ -1,6 +1,6 @@
 ---
-description: Ajoute ou retire un visuel sur un post ComInTime, puis recalcule sa conformité réseau.
-argument-hint: <id du post> [· remove <id média>]
+description: "Ajoute ou retire un visuel sur un post ComInTime, puis recalcule sa conformité réseau."
+argument-hint: "<id du post> [· remove <id média>]"
 ---
 
 Demande : **$ARGUMENTS**

@@ -1,6 +1,6 @@
 ---
-description: Programme ou publie un post ComInTime existant, avec dry-run obligatoire.
-argument-hint: <id du post> [· "now" | date ISO]
+description: "Programme ou publie un post ComInTime existant, avec dry-run obligatoire."
+argument-hint: "<id du post> [· \"now\" | date ISO]"
 ---
 
 Demande : **$ARGUMENTS**

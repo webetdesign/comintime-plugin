@@ -1,6 +1,6 @@
 ---
-description: Montre la ou les prochaines publications ComInTime à venir.
-argument-hint: [dossier] [· statut]
+description: "Montre la ou les prochaines publications ComInTime à venir."
+argument-hint: "[dossier] [· statut]"
 ---
 
 Cible : **$ARGUMENTS** (dossier et/ou statut ; peut être vide).
